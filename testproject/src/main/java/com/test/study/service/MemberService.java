@@ -5,11 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.test.study.domain.Member;
 import com.test.study.repository.MemberRepository;
 
 //@Service
+@Transactional
 public class MemberService {
 
 	private final MemberRepository memberRepository;
@@ -20,9 +22,8 @@ public class MemberService {
 	}
 	/**	
 	 * 회원가입
-	 * @param member
-	 * @return
 	 */
+	
 	public Long join (Member member) {
 		// 같은 이름 x
 		validateDuplicateMember(member);	// 중복 회원 검증
