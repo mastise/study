@@ -21,25 +21,25 @@ public class MemberService {
 		this.memberRepository = memberRepository;
 	}
 	/**	
-	 * È¸¿ø°¡ÀÔ
+	 * íšŒì›ê°€ì…
 	 */
 	
 	public Long join (Member member) {
-		// °°Àº ÀÌ¸§ x
-		validateDuplicateMember(member);	// Áßº¹ È¸¿ø °ËÁõ
+		validateDuplicateMember(member);	// ï¿½ßºï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		memberRepository.save(member);
 		return member.getId();
+		
 	}
 	
 	private void validateDuplicateMember(Member member) {
 		memberRepository.findByName(member.getName())
 		.ifPresent(m->{
-	throw new IllegalStateException("ÀÌ¹Ì Á¸ÀçÇÏ´Â È¸¿øÀÔ´Ï´Ù.");
+	throw new IllegalStateException("ì´ë¯¸ ì¡´ì¬í•˜ëŠ” íšŒì›ì…ë‹ˆë‹¤.");
 	});
 	}
 	
 	/**
-	 * ÀüÃ¼ È¸¿ø Á¶È¸
+	 * íšŒì› ê²€ìƒ‰
 	 */
 	public List<Member> findMembers(){
 		return memberRepository.findAll();

@@ -27,7 +27,7 @@ public class MemberServiceIntegrationTest {
 	
 	
 	@Test
-	void È¸¿ø°¡ÀÔ() {
+	void íšŒì›ê°€ì…() {
 		//given
 		Member member = new Member();
 		member.setName("spring");
@@ -41,7 +41,7 @@ public class MemberServiceIntegrationTest {
 		
 	}
 	@Test
-	void Áßº¹_È¸¿ø_¿¹¿Ü() {
+	void íšŒì›ê²€ìƒ‰() {
 		//given
 		Member member1 = new Member();
 		member1.setName("spring");
@@ -51,7 +51,7 @@ public class MemberServiceIntegrationTest {
 		//when
 		memberService.join(member1);
 		IllegalStateException e = assertThrows(IllegalStateException.class, ()->memberService.join(member2));
-		assertThat(e.getMessage()).isEqualTo("ÀÌ¹Ì Á¸ÀçÇÏ´Â È¸¿øÀÔ´Ï´Ù.");
+		assertThat(e.getMessage()).isEqualTo("ì´ë¯¸ ì¡´ì¬í•˜ëŠ” íšŒì›ì…ë‹ˆë‹¤.");
 
 	}
 }
